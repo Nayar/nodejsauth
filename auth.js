@@ -20,6 +20,9 @@ router.post('/register', (req, res) => {
     // recevoir les donnes
 
     const { username, password } = req.body;
+    const userexists = users.find((singleuser) => singleuser.username == username)
+    if(userexists)
+        res.status(409).json({ message: 'Username already exists' });
     users.push({
         username: username,
         password: password
