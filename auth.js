@@ -20,6 +20,10 @@ router.post('/register', (req, res) => {
     // recevoir les donnes
 
     const { username, password } = req.body;
+    users.push({
+        username: username,
+        password: password
+    })
     console.log(req.body)
     console.log('Register attempt by ' + username)
     res.send('You have been registered')
